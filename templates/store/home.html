@@ -2,9 +2,6 @@
 {% load static %}
 
 {% block content %}
-<h1>Home</h1>
-<a href="{% url 'store:about' %}">about</a>
-
 <div class="row align-items-center">
     {% for product in productsss %}
       <div class="col-lg-6">
@@ -13,8 +10,11 @@
             <div class="card-body">
               <div class="small text-muted">{{ product.created }}</div>
               <h2 class="card-title h4">{{ product.title }}</h2>
-              <p class="card-text">{{ product.description_title|slice:"90" }}...</p>
-              <a class="btn btn-primary" href="{{ product.get_absolute_url }}">leer mas →</a>
+              <p class="card-text">{{ product.description_title|slice:"100" }}...</p>
+              <div class="row">
+                <a class="btn btn-primary col" href="{{ product.get_absolute_url }}">leer mas →</a>
+                <h4 class="col">${{ product.price }}</h3>
+              </div>
             </div>
         </div>
       </div>
